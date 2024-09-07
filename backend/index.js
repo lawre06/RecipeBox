@@ -1,16 +1,19 @@
 import express from 'express';
 import { config } from "dotenv";
 import cors from 'cors';
+import mongoose from 'mongoose';
 import { MongoClient } from "mongodb";
-import recipeRoutes from "./routing";
+import recipeRoutes from "./routing.js";
 
 // Next Steps:
-// Fine Tune and test Backend
+// Fix Get Requests
+// Initialize Frontend Side
+
 
 
 
 const app = express();
-const port = 4000;
+const PORT = 4000;
 
 
 app.use(cors());
