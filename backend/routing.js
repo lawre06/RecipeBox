@@ -9,9 +9,9 @@ const router = express.Router();
 router.post('/recipes', async(req, res) => {
     console.log(req);
     const newRecipe = {
-        title : req.title,
-        description : req.description
-    }
+        name : req.body.name,
+        description : req.body.description
+    };
     const recipe = await Recipe.create(newRecipe);
     return res.status(201).json(recipe);
 
@@ -29,8 +29,8 @@ router.get('/recipes/all', async(req, res) => {
 
 router.delete('/recipes/:id', async(req, res) => {
     console.log(req);
-    id = req.params['id'];
-    value = await Recipe.findByIdAndDelete(id);
+    const id = req.params['id'];
+    const value = await Recipe.findByIdAndDelete(id);
     
     return res.status().json({message: 'Recipe Deleted'});
 
@@ -38,19 +38,19 @@ router.delete('/recipes/:id', async(req, res) => {
 
 router.get('/recipes/:id', async(req, res) => {
     console.log(req);
-    id = req.params['id'];
-    value = await Recipe.find(id);
+    const id = req.params.id;
+    const value = await Recipe.find(id);
 
     return res.status().json(value);
 })
 
 router.put('/recipes/:id', async(req, res) => {
     console.log(req);
-    id = req.params['id'];
-    editRecipe = {
-        title : req.title,
+    const id = req.params.id;
+    const editRecipe = {
+        name : req.name,
         description : req.description
-    }
+    };
     const value = Recipe.findByIDAndUpdate(id, editRecipe);
     return res.status(201).json(value);
 })
