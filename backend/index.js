@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/', recipeRoutes);
 
-const url = "mongodb+srv://user:password@recipecluster.dveki4c.mongodb.net/?retryWrites=true&w=majority&appName=RecipeCluster"
+const url = 
 
 const client = new MongoClient(url)
 async function run() {
